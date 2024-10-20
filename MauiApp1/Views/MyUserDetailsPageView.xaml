@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.Views.MyUserDetailsPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+    Title="פרטי המשתמש שלי"
+    x:DataType="viewmodels:MyUserDetailsPageViewModel">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Entry
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="{Binding UserName, Mode=TwoWay}"
+            Placeholder="שם משתמש"
+            TextColor="Black" />
+
+        <Entry
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{Binding UserEmail, Mode=TwoWay}"
+            Placeholder="אימייל"
+            TextColor="Gray" />
+
+        <Entry
+            FontSize="18"
+            HorizontalOptions="Center"
+            Text="{Binding UserPhone, Mode=TwoWay}"
+            Placeholder="מספר טלפון"
+            TextColor="Gray" />
+
+        <Image
+            Aspect="AspectFill"
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Source="{Binding ProfilePicture}"
+            WidthRequest="100" />
+
+        <!-- כפתור לשמירת השינויים -->
+        <Button
+            Text="שמור שינויים"
+            Command="{Binding SaveCommand}"
+            BackgroundColor="Green"
+            TextColor="White"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

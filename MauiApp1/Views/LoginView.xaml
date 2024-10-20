@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+    x:DataType="viewmodels:LoginPageViewModel"
+    Title="LoginView">
+
+    <!-- Grid ברמה העליונה שמאפשר להציב את התמונה כרקע -->
+    <Grid>
+        <!-- תמונת הרקע -->
+        <Image Source="imagepage.jpeg"
+               Aspect="AspectFill"
+               Opacity="0.5"
+               Grid.RowSpan="2"
+               Grid.ColumnSpan="2"
+               />
+
+        <!-- השכבה העליונה עם התוכן -->
+        <StackLayout VerticalOptions="FillAndExpand">
+
+            <ScrollView VerticalOptions="FillAndExpand"
+                        HorizontalScrollBarVisibility="Always"
+                        VerticalScrollBarVisibility="Always">
+
+                <Grid ColumnDefinitions="*,1.5*"
+                      RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*"
+                      Margin="20">
+
+                    <Label
+                        x:Name="name_lbl"
+                        Grid.Column="0"
+                        Margin="15"
+                        Text="אימייל"
+                        TextColor="Black" />
+
+                    <Entry Grid.Column="1" Placeholder="הקלד אימייל"
+                           Text="{Binding UserEmail, Mode=TwoWay}" />
+
+                    <Label
+                        x:Name="Password_lbl"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Margin="15"
+                        Text="סיסמא"
+                        TextColor="Black" />
+
+                    <Entry Grid.Column="1" Placeholder="הקלד סיסמא"
+                           Text="{Binding Password, Mode=TwoWay}"
+                           IsPassword="True"
+                           Grid.Row="1"/>
+
+                    <Button Grid.ColumnSpan="2"
+                            Grid.Row="2" Text="התחבר"
+                            Margin="20"
+                            Command="{Binding LoginCommand}"/>
+
+                </Grid>
+
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

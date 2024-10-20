@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.Views.UpdateUserPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="פרטי משתמש">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="20"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand">
+
+        <!-- כותרת המציגה את שם המשתמש -->
+        <Label Text="{Binding UserName}"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+
+        <!-- תמונת פרופיל של המשתמש -->
+        <Image Source="{Binding ProfilePicture}"
+               HeightRequest="150"
+               WidthRequest="150"
+               Aspect="AspectFill"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <!-- תווית אימייל -->
+        <Label Text="{Binding UserEmail}"
+               FontSize="18"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <!-- תווית מספר טלפון -->
+        <Label Text="{Binding UserPhone}"
+               FontSize="18"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+        <!-- תווית סיסמא -->
+        <Label Text="{Binding UserPassword}"
+               FontSize="18"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>
+
+
+
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.Views.UpdateUserPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="עדכון פרטי משתמש">
+
+    <VerticalStackLayout
+        Padding="20"
+        Spacing="20"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand">
+
+        <Label Text="עדכן את פרטי המשתמש"
+               FontSize="24"
+               TextColor="Black"
+               HorizontalOptions="Center" />
+
+        --><!-- תיבת טקסט לעדכון שם משתמש --><!--
+        <Entry Text="{Binding UserName}"
+               Placeholder="הכנס שם משתמש"
+               HorizontalOptions="Center" />
+
+        --><!-- תיבת טקסט לעדכון אימייל --><!--
+        <Entry Text="{Binding UserEmail}"
+               Placeholder="הכנס כתובת אימייל"
+               HorizontalOptions="Center" />
+
+        --><!-- תיבת טקסט לעדכון מספר טלפון --><!--
+        <Entry Text="{Binding UserPhone}"
+               Placeholder="הכנס מספר טלפון"
+               HorizontalOptions="Center" />
+
+        --><!-- תיבת טקסט לעדכון סיסמא --><!--
+        <Entry Text="{Binding UserPassword}"
+               Placeholder="הכנס סיסמא"
+               IsPassword="True"
+               HorizontalOptions="Center" />
+
+        --><!-- כפתור לשמירת השינויים --><!--
+        <Button Text="שמור שינויים"
+                
+                HorizontalOptions="Center"
+                BackgroundColor="Green"
+                TextColor="White" />
+
+    </VerticalStackLayout>
+</ContentPage>-->
