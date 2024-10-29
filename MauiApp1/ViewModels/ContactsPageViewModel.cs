@@ -69,11 +69,7 @@ namespace MauiApp1.ViewModels
             {
                 Debug.WriteLine("Failed to delete user.");
             }
-/*            if (user != null)
-            {
-                Contacts.Remove(user); // הסר את המשתמש מהאוסף
-               // להוסיף פקודה שתמחק מהשרת ולא מהרשימה הסטטית!!
-            }*/
+
         }
 
 
