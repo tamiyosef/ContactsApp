@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MauiApp1.Views">
+
+    <!--  TabBar עם שתי לשוניות -->
+    <TabBar>
+        <!-- לשונית אוסף אנשי הקשר -->
+        <Tab Title="אוסף אנשי הקשר" Icon="contacts_icon.png">
+            <ShellContent 
+                Title="Contacts" 
+                ContentTemplate="{DataTemplate views:ContactsPageView}" 
+                Route="ContactsPageView" />
+        </Tab>
+
+        <!-- לשונית פרטי המשתמש שלי -->
+        <Tab Title="פרטי המשתמש שלי" Icon="user_icon.png">
+            <ShellContent 
+                Title="My User Details" 
+                ContentTemplate="{DataTemplate views:MyUserDetailsPageView}" 
+                Route="MyUserDetailsPageView" />
+        </Tab>
+    </TabBar>
+
+    <!-- דפים נוספים מחוץ ל-TabBar -->
+    <ShellContent 
+        Title="Registration" 
+        ContentTemplate="{DataTemplate views:RegistrationPage}" 
+        Route="RegistrationPage" />
+    <ShellContent 
+        Title="Login" 
+        ContentTemplate="{DataTemplate views:LoginView}" 
+        Route="LoginView" />
+    <ShellContent 
+        ContentTemplate="{DataTemplate views:UpdateUserPageView}" 
+        Route="UpdateUserPageView" />
+
+</Shell>
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8" ?>
+--><!--<Shell
+x:Class="MauiApp1.AppShell"
+xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:local="clr-namespace:MauiApp1"
+Shell.FlyoutBehavior="Disabled"
+Title="MauiApp1">
+
+<ShellContent
+Title="Home"
+ContentTemplate="{DataTemplate local:MainPage}"
+Route="MainPage" />
+
+</Shell>--><!--
+
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MauiApp1.Views">
+
+    --><!--  דפים  --><!--
+    <ShellContent
+        Title="Registration"
+        ContentTemplate="{DataTemplate views:RegistrationPage}"
+        Route="RegistrationPage" />
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate views:LoginView}"
+        Route="LoginView" />
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate views:ContactsPageView}"
+        Route="ContactsPageView" />
+    <ShellContent ContentTemplate="{DataTemplate views:UpdateUserPageView}" Route="UpdateUserPageView" />
+
+
+
+
+</Shell>-->

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="MauiApp1.Views.ContactsPageView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:models="clr-namespace:MauiApp1.models"
+    xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+    xmlns:images="clr-namespace:System.Resources;assembly=mscorlib"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:DataType="viewmodels:ContactsPageViewModel"
+    Title="אוסף אנשי הקשר"
+    BackgroundColor="LightGray">
+
+    <!-- ScrollView to allow scrolling -->
+    <ScrollView>
+
+        <VerticalStackLayout
+            Spacing="20"
+            Padding="20"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+
+
+            <Label FontFamily="AlmogRegular"
+                   Text="אוסף אנשי הקשר"
+                   FontSize="26"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="Black" />
+            <!-- כותרת הדף -->
+
+            <!-- CollectionView להצגת אוסף אנשי הקשר -->
+            <CollectionView
+                ItemsSource="{Binding Contacts}"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                SelectionMode="None">
+
+                <!-- פריסת אובייקטים עם ריווח אנכי -->
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
+                </CollectionView.ItemsLayout>
+
+                <!-- תבנית תצוגה לכל פריט ברשימה -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:User">
+                        <!-- SwipeView לפעולות גרירה -->
+                        <SwipeView>
+
+                            <!-- גרירה ימינה למחיקה -->
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItemView BackgroundColor="Red">
+
+                                        <Button Text="מחק"
+                                                TextColor="White"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ContactsPageViewModel}}, Path=DeleteCommand}"
+                                                CommandParameter="{Binding .}"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="End"
+                                                Padding="20"/>
+                                    </SwipeItemView>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <!-- גרירה שמאלה לעדכון -->
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItemView BackgroundColor="Blue">
+                                        <Button Text="פרטי משתמש"
+                                                TextColor="Yellow"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ContactsPageViewModel}}, Path=UpdateCommand}"
+                                                CommandParameter="{Binding .}"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Start"
+                                                Padding="20"/>
+                                    </SwipeItemView>
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+
+                            <!-- פרטי משתמש -->
+                            <Frame
+                                BorderColor="DarkGray"
+                                CornerRadius="10"
+                                Padding="15"
+                                HasShadow="True"
+                                Margin="10"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <VerticalStackLayout
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Spacing="10">
+
+                                    <!-- שם משתמש -->
+                                    <Label Text="{Binding UserName}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           TextColor="Black"/>
+
+                                    <!-- כתובת אימייל -->
+                                    <Label Text="{Binding UserPhone}"
+                                           FontSize="14"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Center" />
+
+                                    <!--תמונת פרופיל -->
+                                    <Image Source="{Binding ProfilePicture}"
+                                           HeightRequest="100"
+                                           WidthRequest="100"
+                                           Aspect="AspectFill"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
